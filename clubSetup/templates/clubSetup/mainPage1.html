@@ -1,0 +1,137 @@
+{% extends "clubSetup/base.html" %}
+
+{%block heading%}
+
+    Club Registration Form
+
+{%endblock%}
+
+{%block body%}
+    
+            
+            <div class="container-fluid" id="FormBody">
+                <br>
+                <br>
+                <form action= "{% url 'clubInstall'%}" method="post">
+                {% csrf_token %}
+                    <div class = "form-group form-vertical">
+                        
+                        <label class="control-label col-sm-2" for ="clubName">Club Name:</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="clubName" name="clubName" placeholder="Name of Club" type="text">
+                        </div>
+                        <br>
+                        
+                        
+                        <label class = "control-label col-sm-2" for clubName>Club Purpose:</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="clubPurpose" name="clubPurpose" placeholder="Purpose of Club" type="text">
+                        </div>
+                        
+                        
+                        <br>
+                        <label class = "control-label col-sm-2" for clubName>Club Motto:</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="clubMotto" name="clubMotto" placeholder="Motto of Club" type="text">
+                        </div>
+                        
+                        
+                        <br>
+                        <label class="control-label col-sm-2" for clubName>Club Faculty Advisor:</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="clubFaculty" name="clubFaculty" placeholder="Name of Faculty Advisor" type="text">
+                        </div>
+                        <br>
+                        
+                        
+                        <label class="control-label col-sm-2" for clubName>Is Sports Club:</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="isSportsClub" name="isSportsClub" placeholder="Are you a sports club?">
+                                <option value="" disabled selected>Select option</option>
+                                <option value=True>Yes</option>
+                                <option value=False>No</option>
+                            </select>
+                        </div>
+                        
+                        
+                        <!--Add the logic for the date and time-->
+                        <br>
+                        <label class = "control-label col-sm-2" for clubName>Club Income: $</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="clubIncome" name="clubIncome" placeholder="Money club had at end of last term" type="number">
+                        </div>
+                        
+                        
+                        <br>
+                        <br>
+                        <br>     
+                        <br>
+                    </div>
+                    
+                    
+                        <label class = "control-label col-sm-2" for="">Day of week</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="clubDay" name="clubDay" placeholder="">
+                                <option value="" disabled selected>Select option</option>
+                                <option value=0 type="number">Monday</option>
+                                <option value=1 type="number">Tuesday</option>
+                                <option value=2 type="number">Wednesday</option>
+                                <option value=3 type="number">Thursday</option>
+                                <option value=4 type="number">Friday</option>
+                        </select>
+                    </div>    
+                    <div class="form-group">
+                        <br>
+                        <br>
+                        <center><button class="btn btn-default btn-primary" type="submit"  id="submitButton">Submit!</button></center>
+                    </div>
+                    
+                
+    
+                        
+                
+                </form>
+                
+            
+            
+            
+            
+            
+            
+            </div>
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+{%endblock%}
+
+

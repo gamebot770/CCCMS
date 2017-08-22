@@ -1,0 +1,19 @@
+{%extends "clubSetup/base.html"%}
+
+{% block body %}
+
+<form action="" method="post" enctype="multipart/form-data">
+    
+    <center>
+        <h2> Welcome to the student upload area!</h2>
+        <p> Here, a list of the students to be used in the Campion College Club Management System will be uploaded to be used. Ensure that the file is a .csv file.</p>
+    </center>
+    <label for ="studList" class="control-label"> File Upload</label>
+    <input type="file" name="studList.csv" id="studList" class="file">
+    <!-- <input type="file" class="filestyle" data-classButton="btn btn-primary" data-input="false" data-classIcon="icon-plus" data-buttonText="Your label here."> -->
+    
+
+
+</form>
+
+{%endblock%}
