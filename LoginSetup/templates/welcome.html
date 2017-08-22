@@ -1,0 +1,14 @@
+<!-- welcome.html -->
+
+{% extends "LoginSetup/base.html" %}
+{% load staticfiles %}
+{% block title %}Welcome to Campion College's Club Management System{% endblock %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css '%}"
+{% endblock %}
+{% block content %}
+    <h1> Welcome {{ user.username }} !!! </h1>
+    <p>Ready to get started?</p>
+    <button type="button" onclick="window.location.href='/mainPage1/' ">Club Setup</button>
+    <button type="button" onclick="window.location.href='/logout/' ">Logout</button>
+{% endblock %}
