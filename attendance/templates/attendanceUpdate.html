@@ -1,0 +1,196 @@
+{% extends "clubSetup/base.html" %}
+
+{%block heading%}
+
+    Attendance Form
+
+{%endblock%}
+
+
+
+{% block body %}
+
+    <!--
+        <datalist id="firstName">
+            {% for stud in studList %}
+            <option value={{stud.firstName}}>
+            {% endfor %}
+        
+        </datalist>
+
+
+        <datalist id = "lastName">
+            {% for stud in studList %}
+            <option value={{stud.lastName}}>
+            {% endfor %}
+        </datalist>
+
+
+        <datalist id = "form">
+            {% for stud in studList %}
+            <option value={{stud.form}}>
+            {% endfor %}
+        </datalist>
+
+
+
+
+    <form action="/action_page.php" method="get">
+        
+        
+        <div class="col-xs-4" id="nameField">
+            <label for="nameField">First Name</label>
+            <br>
+            <input class="form-control input-sm" list="firstName" name="nameField">
+        </div>
+        
+        <div class="col-xs-4">
+            <label for="lastNameField">Last Name</label>
+            <input class="form-control input-sm" list="lastName" name="lastNameField">
+        </div>
+
+        <div class="col-xs-4">
+            <label for="formField">Form</label>
+            <input class="form-control input-sm" list="form" name="formField">
+        </div>
+        
+        <center>
+            <input class = "btn btn-std"type="submit">
+        </center>
+    </form>
+
+    -->
+      
+    <div id="classSelect" class="container-fluid"> 
+         
+        <div class="row">
+            
+            
+             <div class="col-xs-4" > 
+                 
+                <select id=classSelector class="form-control"> 
+
+                    {%for form in formList%}
+
+                        <option value={{form.name}}>{{form.name}} </option>
+
+                    {%endfor%}
+
+                </select>
+
+                <center>
+                {% for form in formList %}
+                <div id={{form.name}} class="formSelection container-fluid" style="display: none"> 
+                    <h1>{{form.name}}</h1>
+                    {%for stud in studList%}
+
+                         
+                        {%if stud.form.name == form.name%}
+
+                        <button class="btn btn-std" onclick="revealByID('{{stud.pk}}')" style="width:200px">{{stud.firstName}} {{stud.lastName}}</button>
+                        <br>
+                        <br>
+
+                        {%endif%}
+
+                    {%endfor%}
+                </div>
+                {%endfor%}
+                </center>
+            </div>
+<!--
+            <div class="col-xs-4" id="14"> 
+                <h1>Attended Current Meeting</h1>
+                {% for form in formList %}
+                    
+                    {%for stud in studList%}
+
+                        
+                            {%if stud.form.name == form.name%}
+                            <div id='{{stud.pk}}' class="studentRegistry" style="display: none"> 
+                            <h3>{{stud.firstName}} {{stud.lastName}} {{stud.form}}</h3>
+                            </div>
+                            {%endif%}
+                        
+                    {%endfor%}
+                
+                {%endfor%}
+            </div>
+        </div>
+-->
+        
+        <div class="col-xs-8">
+            <table class=table>
+                <thead>
+                <tr>
+
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Form</th>
+                    <th><i class="fa fa-minus-square" aria-hidden="true" style="visibility: hidden"></i> </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for form in formList %}
+
+                            {%for stud in studList%}
+
+
+                                    {%if stud.form.name == form.name%}
+                                    <tr id = '{{stud.pk}}' class="hidden"> 
+                                        <td>{{stud.firstName}}</td> 
+                                        <td>{{stud.lastName}}</td>
+                                        <td>{{stud.form}}</td>
+                                        <td> <a onclick="hideByID('{{stud.pk}}')")><i class="fa fa-minus-square" aria-hidden="true"></i></a></td>
+                                    </tr>
+                                    {%endif%}
+
+                            {%endfor%}
+
+                {%endfor%}
+                </tbody>
+
+
+
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+            
+    
+    var selection = document.getElementById("classSelector");
+    selection.addEventListener("change",revealSelection);
+    
+
+    function revealSelection(){
+        hideSelection();
+        document.getElementById(selection.value).style.display='block';
+    }
+
+    function hideSelection(){
+        
+        
+        var formSelection = document.getElementsByClassName('formSelection');
+        
+        for(i=0;i<formSelection.length;i++)
+            {
+                formSelection[i].style.display='none';
+            }
+
+    }
+    function revealByID(id){
+
+        document.getElementById(id).className='';
+    }
+    
+    function hideByID(id){
+        document.getElementById(id).className='hidden';
+    }
+
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+.jumbotron
+{
+    background-color: df3939;
+    color: fbecec;
+    text-align: center;
+    margin-bottom: 0%;
+}
+
+.jumbotron small
+{
+    color: fbecec;   
+}
+
+#submitButton
+{
+    background-color: df3939;
+    border-color: white;
+}
+
+#FormBody
+{
+    background-color: beige;
+}
+
+
+
+#AttrList
+{
+    background-color: df3939;
+    margin-top: 5%;
+    color: white;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+input::-webkit-calendar-picker-indicator {
+	display: none;
+}
