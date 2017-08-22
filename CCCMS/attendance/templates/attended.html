@@ -1,0 +1,34 @@
+{%extends "clubSetup/base.html" %}
+
+{%block body%}
+
+
+<center>
+    <table class=table>
+        <thead>
+        <tr>
+
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Form</th>
+    
+        </tr>
+        </thead>
+        <tbody>
+            {%for stud in studList%}
+            <tr id = '{{stud.pk}}'> 
+                <td>{{stud.firstName}}</td> 
+                <td>{{stud.lastName}}</td>
+                <td>{{stud.form}}</td>
+
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table></center>
+
+                                
+
+
+
+
+{%endblock%}
